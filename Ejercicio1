@@ -1,0 +1,166 @@
+/*
+*Realiza un programa que lea por teclado las notas de los diferentes instrumentos de calificación que utilizamos en la modalidad semipresencial para una evaluación y a continuación calcule y muestre por pantalla la nota final de dicha evaluación atendiendo a los siguientes criterios:
+*o	La participación pondera un 10% de la nota final.
+*o	Los cuestionarios online pondera un 5 % de la nota final.
+*o	La tarea online pondera un 25% de la nota final.
+*o	La tarea presencial pondera un 25% de la nota final.
+*o	El examen presencial pondera un 35% de la nota final.
+*o	En el caso de que la tarea online, la tarea presencial o el examen presencial no supere el 5, la nota final será un 4.
+*o	Debes validar que las entradas para cada instrumento están comprendidas entre 0 y 10 (ambos inclusive).
+
+ */
+package tema2;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author MARTIN MARVIN
+ */
+public class Ejercicio1 {
+    public static void main(String[] args) {
+        
+    Scanner entrada = new Scanner(System.in);
+
+        
+
+// Declaración de variables.
+        float participacion, cuestiOnline, tareaOnline, tareaPresen, examenPresen, nota, totalNota;
+
+        
+        
+        
+        System.out.println("----------------------------------------------------");
+
+ //Participacion un 10%.---------------------------------------------------------------------------------
+        do {
+            System.out.println("Introduzca la nota de participación: ");
+            participacion = entrada.nextFloat();
+
+            if ((participacion >= 0) && (participacion <= 10)) {
+
+                participacion = (participacion / 10);
+                System.out.println("La nota de participación es: " + participacion);
+
+            } else {
+                System.out.println("El valor introducido no es correcto, vuelve a intentarlo.");
+            }
+
+        } while ((participacion < 0) || (participacion > 10));
+    
+
+        System.out.println("---------------------------------------------------");
+        
+//Cuestionarios on line 5%.---------------------------------------------------------------------------------
+        
+        do {
+            System.out.println("Introduzca la nota de los cuestionarios online: ");
+            cuestiOnline = entrada.nextFloat();
+
+            if ((cuestiOnline >= 0) && (cuestiOnline <= 10)) {
+
+                cuestiOnline = (cuestiOnline / 5);
+                System.out.println("La nota de los cuestionarios online: " + cuestiOnline);
+
+            } else {
+                System.out.println("El valor introducido no es correcto, vuelve a intentarlo.");
+            }
+
+        } while ((cuestiOnline < 0) || (cuestiOnline > 10));
+
+        System.out.println("----------------------------------------------------");
+
+//Tarea online 25%.--------------------------------------------------------------------------------------------       
+
+        do {
+            System.out.println("Introduzca la nota de tarea online: ");
+            tareaOnline = entrada.nextFloat();
+
+            if ((tareaOnline >= 0) && (tareaOnline <= 10)) {
+
+                tareaOnline = (tareaOnline / 25);
+                System.out.println("La nota de la tarea online: " + tareaOnline);
+
+            } else {
+                System.out.println("El valor introducido no es correcto, vuelve a intentarlo.");
+            }
+
+        } while ((tareaOnline < 0) || (tareaOnline > 10));
+        
+        
+        
+        System.out.println("----------------------------------------------------");
+
+//Tarea presencial 25%.--------------------------------------------------------------------------------------------       
+        
+        do {
+            System.out.println("Introduzca la nota de tarea presencial: ");
+            tareaPresen = entrada.nextFloat();
+
+            if ((tareaPresen >= 0) && (tareaPresen <= 10)) {
+
+                tareaPresen = (tareaPresen / 25);
+                System.out.println("La nota de tarea presencial es: " + tareaPresen);
+
+            } else {
+                System.out.println("El valor introducido no es correcto, vuelve a intentarlo.");
+            }
+
+        } while ((tareaPresen < 0) || (tareaPresen > 10));
+
+
+        
+        System.out.println("----------------------------------------------------");
+
+//Examen presencial 35%.--------------------------------------------------------------------------------------------         
+        
+      
+         do {
+            System.out.println("Introduzca la nota examen presencial: ");
+            examenPresen = entrada.nextFloat();
+
+            if ((examenPresen >= 0) && (examenPresen <= 10)) {
+
+                examenPresen = (examenPresen / 35);
+                System.out.println("La nota de tarea presencial es: " + examenPresen);
+
+            } else {
+                System.out.println("El valor introducido no es correcto, vuelve a intentarlo.");
+            }
+
+        } while ((examenPresen < 0) || (examenPresen > 10));
+        
+        
+                
+//Final.---------------------------------------------------------------------------------------------------------------  
+
+
+        System.out.println("----------------------------------------------------");
+
+        
+        
+        if ((tareaOnline < 5 || tareaPresen < 5 || examenPresen < 5) && (participacion > 5) || (cuestiOnline > 5)){
+            
+         totalNota = 4;
+            
+            
+
+        System.out.println("La nota total será: " + totalNota);
+   
+        }
+        
+        
+        else {
+            totalNota = (float) ((participacion * 0.1) + (cuestiOnline * 0.05)
+                    + (tareaOnline * 0.25) + (tareaPresen * 0.25) + (examenPresen * 0.35));
+      
+             }
+        System.out.println(String.format("La nota final  es: " + "%.2f", totalNota));
+        
+        
+        
+        
+    }
+
+}
+    
