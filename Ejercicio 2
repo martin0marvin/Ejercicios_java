@@ -1,0 +1,43 @@
+/*
+*Escribe un programa que dado un número positivo realice el desplazamiento del mismo una posición hacia la derecha.
+*o	El desplazamiento hacia la derecha consiste en coger la última cifra de la derecha del número y ponerla a la izquierda. Por ejemplo: 2476 -> 6247, 123 -> 312, 987 -> 798....
+*o	El programa debe asegurarse de que se introduce un número positivo.
+ */
+package tema2;
+
+import utilidades.Entrada;
+
+/**
+ *
+ * @author MARTIN MARVIN
+ */
+public class Ejercicio2 {
+
+    public static void main(String[] args) {
+
+        //Variables:
+        int numero;
+        int resto;
+        int cociente;
+
+        //Do-while:
+        do {
+            System.out.println("Dime un mumero ");
+            numero = Entrada.entero();
+
+            if (numero > 0) {
+
+                resto = numero % 10;
+
+                cociente = numero / 10;
+
+                System.out.println("El número es: " + numero + resto + cociente);
+
+            } else {
+                System.out.println("El número introducido es negativo, inténtelo de nuevo: ");
+            }
+
+        } while (numero < 0);
+
+    }
+}
